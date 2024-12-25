@@ -5,7 +5,7 @@ from app.models.user import User
 
 class Task(Base):
     __tablename__ = 'tasks'
-    #__tableargs__ = {'extend_existing': True}
+    __tableargs__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
     content = Column(String)
@@ -15,5 +15,6 @@ class Task(Base):
     slug = Column(String, unique=True, index=True)
     user = relationship("User", back_populates='tasks')
 
+# Печать SQL запроса в консоль при помощи CrateTable
 from sqlalchemy.schema import CreateTable
 print(CreateTable(Task.__table__))

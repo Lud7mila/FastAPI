@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 
 class User(Base):
     __tablename__ = 'users'
-    #__tableargs__ = {'extend_existing': True} # разрешено ли этой таблице добавлять новые столбцы для ее наследующих классов или, так сказать, "расширять"
+    __tableargs__ = {'extend_existing': True} # разрешено ли этой таблице добавлять новые столбцы для ее наследующих классов или, так сказать, "расширять"
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String)
     firstname = Column(String)
@@ -13,5 +13,6 @@ class User(Base):
     slug = Column(String, unique=True, index=True)
     tasks = relationship('Task', back_populates = 'user')
 
+# Печать SQL запроса в консоль при помощи CrateTable
 from sqlalchemy.schema import CreateTable
 print(CreateTable(User.__table__))
