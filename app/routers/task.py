@@ -2,6 +2,8 @@ from fastapi import APIRouter
 
 router = APIRouter(prefix="/task", tags=['task'])
 
+tasks = [{}]
+
 @router.get('/')
 async def all_tasks():
     pass

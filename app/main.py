@@ -1,6 +1,6 @@
-from fastapi import APIRouter, FastAPI
-from routers import task
-from routers import user
+from fastapi import FastAPI
+from app.routers import task, user
+
 
 app = FastAPI(debug=True, swagger_ui_parameters={"tryItOutEnabled": True})
 

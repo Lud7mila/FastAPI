@@ -14,5 +14,5 @@ class User(Base):
     tasks = relationship('Task', back_populates = 'user')
 
 # Печать SQL запроса в консоль при помощи CrateTable
-from sqlalchemy.schema import CreateTable
-print(CreateTable(User.__table__))
+# from sqlalchemy.schema import CreateTable
+# print(CreateTable(User.__table__))
